@@ -1,6 +1,5 @@
 *.pkl
 *.pickle
 *.pyc
-*.xlsx
 *.csv
 *.json
