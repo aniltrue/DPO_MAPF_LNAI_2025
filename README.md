@@ -137,5 +137,8 @@ Argument Options:
   
 ## References
 [1]: Doğru, A., Alamdari, A. D., Balpınarlı, D., & Aydoğan, R. (2025). A Multitier Approach for Dynamic and Partially Observable Multiagent Path-Finding. Proceedings of the 17th International Conference on Agents and Artificial Intelligence - Volume 3: ICAART, 562–573. [doi:10.5220/0013159800003890](doi:10.5220/0013159800003890)
+
 [2]: Li, J., Harabor, D., Stuckey, P. J., Ma, H., Gange, G., & Koenig, S. (2021). Pairwise symmetry reasoning for multi-agent path finding search. Artificial Intelligence, 301, 103574. [doi:10.1016/j.artint.2021.103574](doi:10.1016/j.artint.2021.103574)
+
 [3]: Li, J., Ruml, W., & Koenig, S. (2021). EECBS: A Bounded-Suboptimal Search for Multi-Agent Path Finding. Proceedings of the AAAI Conference on Artificial Intelligence, 35(14), 12353–12362. [doi:10.1609/aaai.v35i14.17466](doi:10.1609/aaai.v35i14.17466)
+
