@@ -1,7 +1,7 @@
 # **Dynamic and Partially Observable MAPF: An Extended Evaluation Integrating Informed Path Reuse and Context-Aware Planning**
 
 ## <div align="center">LNAI 2025</div>
-## <div align="center">Paper ID: X </div>
+## <div align="center">Paper ID: 86 </div>
 
 ## <u>Table of Contents</u>:
 - [Overview](#overview)
@@ -12,19 +12,20 @@
   - [Usage of MAPF Scenario Generator](#command-line)
   - [Usage of A Metaheuristic and Hybrid Approach](#web-based-user-interface)
 - [License](#license)
+- [References](#references)
 
 ## Overview:
 
 
 ###  <u>Project Description</u>:
-This project introduces an innovative solution for addressing the complex Dynamic and Partially Observable Multi-Agent Path-Finding (DPO-MAPF) problem encountered in challenging environments. The primary objective is to minimize total travel time while ensuring collision-free navigation among multiple agents.
+This project extends the study *A Multitier Approach for Dynamic and Partially Observable Multiagent Path-Finding* [1] by enriching evaluation maps and introducing enhancements on exiting ACO-based conflict resolution algorithms.
 
 ###  <u>Approach</u>:
 The proposed solution utilizes a bio-inspired metaheuristic technique known as Ant Colony Optimization (ACO) to facilitate efficient coordination and navigation among agents. 
 
 The approach consists of two phases:
 
-**1- _Centralized Offline Path Planning:_** In this phase, ACO is applied to perform centralized path planning. The goal is to minimize travel time and establish collision-free routes around static obstacles such as walls, mountains, and buildings.
+**1- _Centralized Offline Path Planning:_** In this phase, SOTA approaches (optimal or suboptimal) approaches are applied to perform centralized path planning. The goal is to minimize travel time and establish collision-free routes around static obstacles such as walls, mountains, and buildings.
 
 **2- _Decentralized Online Repairs:_** Then, the solution addresses the challenges posed by dynamic and partially observable obstacles, including humans, vehicles, and other agents. Decentralized online repairs are carried out using the ACO to adaptively navigate around these obstacles.
 
@@ -78,9 +79,14 @@ The ```SingleRun.py``` is a Python script, running a single simulation based on 
 Argument Options:
 - **initial_algorithm**: Specifying *Centralized & Offline Path Planning* approach. The options are:
   - *single_aco*: Classical Ant Colony Optimizer
-  - *cbs*: Pheromone-Based Multi-Agent Ant Colony Optimizer. It reduces the pheromone value of cells along the best paths identified by other agents.
-  - *eecbs*: Obstacle-Based Multi-Agent Ant Colony Optimizer. It treats cells along the best paths of other agents as obstacles.
-  - *lp*: Obstacle-Based Multi-Agent Ant Colony Optimizer. It treats cells along the best paths of other agents as obstacles.
+  - *cbs*: An optimal solver: Conflict-Based Search (CBSH2-RTC) [2]
+  - *eecbs*: A suboptimal solver: Explicit Estimation Conflict-Based Search (EECBS) [3]
+  - *lp*: Linear programming approach, introduced in [1]. Note that it requires Gurobi licence.
+- **repairing**: Specifiyng *Repairing* algorithm. The options are:
+  - *informed_wap*: ACO-based repairing strategy, enhanced by WAP and Information exchange strategies.
+  - *informed*: ACO-based repairing strategy, enhanced by only Information exchange strategy.
+  - *uninfomed* ACO-based repairing strategy, proposed in the first study [1].
+  - *no-repairing*: No repairing strategy.
 - **protocol**: Specifying *Priority Protocol* for *Decentralized & Online Conflict Resolution*. The options are:
   - *random*: Random Protocol.
   - *token*: Fair Token Protocol. 
@@ -128,3 +134,8 @@ Argument Options:
   ```
 
   > **Note**: The analysis and experiment data for evaluation in the paper exist in *analysis - final.xlsx*
+  
+## References
+[1]: Doğru, A., Alamdari, A. D., Balpınarlı, D., & Aydoğan, R. (2025). A Multitier Approach for Dynamic and Partially Observable Multiagent Path-Finding. Proceedings of the 17th International Conference on Agents and Artificial Intelligence - Volume 3: ICAART, 562–573. [doi:10.5220/0013159800003890](doi:10.5220/0013159800003890)
+[2]: Li, J., Harabor, D., Stuckey, P. J., Ma, H., Gange, G., & Koenig, S. (2021). Pairwise symmetry reasoning for multi-agent path finding search. Artificial Intelligence, 301, 103574. [doi:10.1016/j.artint.2021.103574](doi:10.1016/j.artint.2021.103574)
+[3]: Li, J., Ruml, W., & Koenig, S. (2021). EECBS: A Bounded-Suboptimal Search for Multi-Agent Path Finding. Proceedings of the AAAI Conference on Artificial Intelligence, 35(14), 12353–12362. [doi:10.1609/aaai.v35i14.17466](doi:10.1609/aaai.v35i14.17466)
